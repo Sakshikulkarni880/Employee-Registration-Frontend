@@ -9,17 +9,17 @@ export default function Home() {
   const currentPage = useRef();
   const [searchQuery, setSearchQuery] = useState("");
 
+  //fetching all user and paginated user
   useEffect(() => {
     getAllUser();
     currentPage.current = 1;
-    // getAllUser();
     getPaginatedUsers();
   }, []);
 
   //fetching all user
   const getAllUser = () => {
     const query = searchQuery.trim(); // Trimimng space
-
+    //fetching data as per the query from search bar
     fetch(`http://localhost:5000/getAllUser?query=${query}`, {
       method: "GET",
     })
@@ -30,17 +30,21 @@ export default function Home() {
       });
   };
 
-  //pagination
+  //pagination => paginated users per subject after clicking to next page
   function handlePageClick(e) {
     console.log(e);
     currentPage.current = e.selected + 1;
     getPaginatedUsers();
   }
+  
+  //changing limit of Entries in a page in pagination
   function changeLimit() {
     currentPage.current = 1;
     getPaginatedUsers();
     console.log(limit);
   }
+
+  //fetching paginated users as per query from api
   function getPaginatedUsers() {
     const query = searchQuery.trim();
 
@@ -63,6 +67,7 @@ export default function Home() {
       <div className="home-table" style={{ width: "auto" }}>
         <h3 style={{ textAlign: "center" }}>Registered Employee Listing</h3>
         <br></br>
+        //search bar
         <form
           className="form-inline my-2 my-lg-0"
           onSubmit={(e) => {
@@ -88,6 +93,7 @@ export default function Home() {
           </div>
         </form>
         <br></br>
+        //Fetched all users data from database
         <div className="row justify-content-center">
           <table style={{ width: 500, paddingBottom: 50 }}>
             <tr>
@@ -111,6 +117,8 @@ export default function Home() {
           </table>
         </div>
         <br></br>
+
+        //Pagination of the data
         <div className="row justify-content-center">
           <ReactPaginate
             breakLabel="..."
@@ -132,6 +140,8 @@ export default function Home() {
             forcePage={currentPage.current - 1}
           />
         </div>
+
+        //setting limit of entries or rows per page
         <div className="d-grid gap-3 text-center">
           <div className="input-group">
             <input
