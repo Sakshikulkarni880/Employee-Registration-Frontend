@@ -1,4 +1,4 @@
-# Employe-Registration - Frontend
+# Employee-Registration - Frontend
 LogicLoom Machine Test
 
 ## Tech Stack
