@@ -6,10 +6,12 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //Navigating to registration page
   const navigateRegistration = () => {
     navigate("/register");
   };
 
+  //handling the inputs and checking it by fetching through api of login-user
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -49,6 +51,7 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <h3>Login In</h3>
 
+        //login
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -78,6 +81,7 @@ export default function Login() {
             Submit
           </button>
         </div>
+              
         <p className="forgot-password text-right">
           New Member{" "}
           <a href="#" onClick={navigateRegistration}>
