@@ -1,5 +1,7 @@
 # Employee-Registration - Frontend
-LogicLoom Machine Test | Demonstration [link]([url](https://drive.google.com/file/d/1iEuW9gihQQi-2lmSNtWdQHsalJyEeAYN/view?usp=sharing))
+
+LogicLoom Machine Test | [Demonstration Link](https://drive.google.com/file/d/1iEuW9gihQQi-2lmSNtWdQHsalJyEeAYN/view?usp=sharing)
+
 ## Tech Stack
 
 * React.js
