@@ -3,6 +3,8 @@ import Home from "./Home";
 
 export default function UserDetails() {
   const [userData, setUserData] = useState({});
+
+  //fetching the logged user's data from user-data API
   useEffect(() => {
     fetch("http://localhost:5000/user-data", {
       method: "POST",
@@ -23,6 +25,7 @@ export default function UserDetails() {
       });
   }, []);
 
+  //Logout Session
   const logOut = () => {
     window.localStorage.clear();
     window.location.href = "./login";
@@ -30,6 +33,7 @@ export default function UserDetails() {
 
   return (
     <>
+      //Navbar for the user
       {userData && userData.data && (
         <nav className="navbar navbar-light bg-light">
           <div className="container-fluid">
@@ -43,6 +47,7 @@ export default function UserDetails() {
         </nav>
       )}
 
+      //Adding the home page for all user details data through pagination
       <Home />
     </>
   );
