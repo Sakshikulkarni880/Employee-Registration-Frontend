@@ -12,9 +12,12 @@ export default function Registration() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
 
+  //navigating to the login page
   const navigateLogin = () => {
     navigate("/login");
   };
+
+  //handling the events of sending the input data to the database through register REST API
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -33,17 +36,6 @@ export default function Registration() {
       console.log("Please fill in all fields");
       return;
     }
-
-    // Handle form submission logic here (e.g., making API calls)
-    console.log("Registration form submitted");
-    console.log("First Name:", fname);
-    console.log("Middle Name:", mname);
-    console.log("Last Name:", lname);
-    console.log("Gender:", gender);
-    console.log("Email:", email);
-    console.log("Contact:", contact);
-    console.log("Address:", address);
-    console.log("Password:", password);
 
     // Resetting fields after submission
     setFname("");
